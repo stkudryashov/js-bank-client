@@ -1,0 +1,19 @@
+{
+  "name": "js-bank-client",
+  "version": "1.0.0",
+  "description": "Simple vanilla JavaScript bank client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stkudryashov/js-bank-client.git"
+  },
+  "author": "Aleks Kudryashov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stkudryashov/js-bank-client/issues"
+  },
+  "homepage": "https://github.com/stkudryashov/js-bank-client#readme"
+}
