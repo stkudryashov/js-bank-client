@@ -30,6 +30,8 @@ export class Router {
       route = {
         component: Home
       }
+
+      window.location.pathname = '/'
     }
 
     this.#currentRoute = route
