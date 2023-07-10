@@ -4,7 +4,7 @@ export class BaseScreen {
   /**
    * Create a new BaseScreen instance.
    * @param {Object} options - The options for the screen.
-   * @param {String} options.title - The title for the screen.
+   * @param {string} options.title - The title for the screen.
    */
   constructor({ title }) {
     document.title = getGlobalTitle(title)

@@ -131,5 +131,6 @@ dist
 
 # VSCode other
 .prettierrc
+.fttemplates
 .eslintrc.json
 jsconfig.json

@@ -6,7 +6,7 @@ class RenderService {
    * @param {string} html - The HTML string to convert.
    * @param {Object} styles - The styles to apply to the element.
    * @param {Array} components - An array of component classes to replace component tags.
-   * @returns {HTMLElement} - The converted DOM element.
+   * @returns {HTMLElement} The converted DOM element.
    */
   htmlToElement(html, styles, components = []) {
     const template = document.createElement('template')
