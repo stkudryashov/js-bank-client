@@ -1,6 +1,13 @@
 import { BaseChild } from '../component/base-child.component'
 
 class RenderService {
+  /**
+   * Converts an HTML string into a DOM element, applies styles, and replaces component tags.
+   * @param {string} html - The HTML string to convert.
+   * @param {Object} styles - The styles to apply to the element.
+   * @param {Array} components - An array of component classes to replace component tags.
+   * @returns {HTMLElement} - The converted DOM element.
+   */
   htmlToElement(html, styles, components = []) {
     const template = document.createElement('template')
     template.innerHTML = html.trim()
@@ -16,6 +23,12 @@ class RenderService {
     return element
   }
 
+  /**
+   * Replaces component tags with rendered components.
+   * @private
+   * @param {HTMLElement} parentElement - The parent element to search for component tags.
+   * @param {Array} components - An array of component classes to replace component tags.
+   */
   #replaceComponentTags(parentElement, components) {
     const componentTagPattern = /^component-/
     const allElements = parentElement.getElementsByTagName('*')
@@ -50,6 +63,12 @@ class RenderService {
     }
   }
 
+  /**
+   * Applies module styles to the element and its child elements.
+   * @private
+   * @param {HTMLElement} element - The element to apply styles to.
+   * @param {Object} moduleStyles - The module styles to apply.
+   */
   #applyModuleStyles(element, moduleStyles) {
     if (!element) return
 
