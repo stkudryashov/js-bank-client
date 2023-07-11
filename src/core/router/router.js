@@ -22,6 +22,13 @@ export class Router {
     return window.location.pathname
   }
 
+  navigate(path) {
+    if (path !== this.getCurrentPath()) {
+      window.history.pushState({}, '', path)
+      this.#handleRouteChange()
+    }
+  }
+
   #render() {
     const component = new this.#currentRoute.component().render()
 
@@ -34,13 +41,6 @@ export class Router {
       $R('#app').append(this.#layoutInstance)
     } else {
       $R('#content').html('').append(component)
-    }
-  }
-
-  #navigate(path) {
-    if (path !== this.getCurrentPath()) {
-      window.history.pushState({}, '', path)
-      this.#handleRouteChange()
     }
   }
 
@@ -67,7 +67,7 @@ export class Router {
 
       if (target) {
         event.preventDefault()
-        this.#navigate(target.href)
+        this.navigate(target.href)
       }
     })
   }
