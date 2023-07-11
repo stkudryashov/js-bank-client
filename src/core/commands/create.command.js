@@ -16,8 +16,10 @@ const createComponent = componentName => {
   const templatePath = path.resolve('src/', 'core/', 'component/', 'template/')
 
   if (!fs.existsSync(componentPath)) {
-    fs.mkdirSync(componentPath)
+    fs.mkdirSync(componentPath, { recursive: true })
   }
+
+  componentName = componentName.slice(componentName.indexOf('/'))
 
   const templateFiles = fs.readdirSync(`${templatePath}`)
 
