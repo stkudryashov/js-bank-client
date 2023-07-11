@@ -5,6 +5,7 @@ import template from './home.template.html'
 import styles from './home.module.scss'
 
 import { $R } from '@/core/rquery/rquery.lib'
+import { Button } from '@/components/ui/button/button.component'
 
 export class Home extends BaseScreen {
   constructor() {
@@ -12,7 +13,13 @@ export class Home extends BaseScreen {
   }
 
   render() {
-    const element = renderService.htmlToElement(template, styles, [])
+    const element = renderService.htmlToElement(template, styles, [
+      new Button({
+        children: 'Send',
+        onClick: () => alert(element.classList),
+        variant: 'green'
+      })
+    ])
 
     $R(element).find('p').css('color', 'red')
 
