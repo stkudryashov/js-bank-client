@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "create": "node ./src/core/commands/create.command.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
+    "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.0",
     "sass": "^1.63.6",
