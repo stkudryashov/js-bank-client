@@ -1,6 +1,8 @@
 import { Home } from '@/components/screens/home/home.component'
+import { Layout } from '@/components/layout/layout.component'
+
 import { ROUTES } from './routes.data'
-import { Layout } from '@/components/screens/layout/layout.component'
+import { $R } from '../rquery/rquery.lib'
 
 export class Router {
   #routes = ROUTES
@@ -21,17 +23,17 @@ export class Router {
   }
 
   #render() {
-    const component = new this.#currentRoute.component()
+    const component = new this.#currentRoute.component().render()
 
     if (!this.#layoutInstance) {
       this.#layoutInstance = new Layout({
         router: this,
-        children: component.render()
-      })
+        children: component
+      }).render()
 
-      document.getElementById('app').innerHTML = this.#layoutInstance.render()
+      $R('#app').append(this.#layoutInstance)
     } else {
-      document.querySelector('main').innerHTML = component.render()
+      $R('#content').html('').append(component)
     }
   }
 

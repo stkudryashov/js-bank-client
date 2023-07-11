@@ -16,6 +16,6 @@ export class Home extends BaseScreen {
 
     $R(element).find('p').css('color', 'red')
 
-    return element.outerHTML
+    return element
   }
 }
