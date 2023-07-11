@@ -19,7 +19,7 @@ const createComponent = componentName => {
     fs.mkdirSync(componentPath, { recursive: true })
   }
 
-  componentName = componentName.slice(componentName.indexOf('/'))
+  componentName = componentName.slice(componentName.indexOf('/') + 1)
 
   const templateFiles = fs.readdirSync(`${templatePath}`)
 
