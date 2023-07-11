@@ -4,6 +4,6 @@ export class BaseChild {
    * @returns {HTMLElement}
    */
   render() {
-    throw new Error('Render method must be implemented in child class')
+    throw new Error('Render method must be implemented in child class.')
   }
 }

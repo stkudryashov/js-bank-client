@@ -6,6 +6,7 @@ import styles from './home.module.scss'
 
 import { $R } from '@/core/rquery/rquery.lib'
 import { Button } from '@/components/ui/button/button.component'
+import { Field } from '@/components/ui/field/field.component'
 
 export class Home extends BaseScreen {
   constructor() {
@@ -18,6 +19,12 @@ export class Home extends BaseScreen {
         children: 'Send',
         onClick: () => alert(element.classList),
         variant: 'green'
+      }),
+      new Field({
+        placeholder: 'Enter name',
+        name: 'name',
+        variant: 'credit-card',
+        type: 'text'
       })
     ])
 
