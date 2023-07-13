@@ -1,6 +1,6 @@
 import { SERVER_URL } from '@/config/url.config'
 import { extractErrorMessage } from './extract-error-message'
-import { storageService } from '../services/storage.service'
+import { StorageService } from '../services/storage.service'
 import { ACCESS_TOKEN_KEY } from '@/constants/auth.constants'
 import { notify } from '../services/notification.service'
 
@@ -30,7 +30,7 @@ export const redQuery = async ({
 
   const url = `${SERVER_URL}/api/${path}`
 
-  const accessToken = storageService.getItem(ACCESS_TOKEN_KEY)
+  const accessToken = StorageService.getItem(ACCESS_TOKEN_KEY)
 
   const requestOptions = {
     method,
