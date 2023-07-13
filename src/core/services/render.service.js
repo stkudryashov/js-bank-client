@@ -54,6 +54,7 @@ class RenderService {
               ? foundComponent.render()
               : new foundComponent().render()
           element.replaceWith(componentContent)
+          components.splice(components.indexOf(foundComponent), 1)
         } else {
           console.error(
             `Component ${componentName} not found in the provided components array.`
