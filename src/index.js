@@ -4,11 +4,11 @@ import { Router } from './core/router/router'
 import { devMode } from './config/dev.config'
 
 import { notify } from './core/services/notification.service'
-import { storageService } from './core/services/storage.service'
+import { StorageService } from './core/services/storage.service'
 
 if (devMode) {
   window.notify = notify
-  window.storageService = storageService()
+  window.storageService = StorageService
 }
 
 new Router()

@@ -1,7 +1,7 @@
 // Singleton pattern
 
 import { ACCESS_TOKEN_KEY, USER_STORAGE_KEY } from '@/constants/auth.constants'
-import { storageService } from '../services/storage.service'
+import { StorageService } from '../services/storage.service'
 
 /**
  * Store class implements the Singleton pattern, providing a
@@ -17,7 +17,7 @@ export class Store {
   constructor(initialState) {
     this.observers = []
 
-    const savedUser = storageService.getItem(USER_STORAGE_KEY)
+    const savedUser = StorageService.getItem(USER_STORAGE_KEY)
     const state = savedUser ? { user: savedUser } : initialState
 
     this.state = new Proxy(state, {
@@ -72,8 +72,8 @@ export class Store {
    */
   login(user, accessToken) {
     this.state.user = user
-    storageService.setItem(USER_STORAGE_KEY, user)
-    storageService.setItem(ACCESS_TOKEN_KEY, accessToken)
+    StorageService.setItem(USER_STORAGE_KEY, user)
+    StorageService.setItem(ACCESS_TOKEN_KEY, accessToken)
   }
 
   /**
@@ -81,8 +81,8 @@ export class Store {
    */
   logout() {
     this.state.user = null
-    storageService.removeItem(USER_STORAGE_KEY)
-    storageService.removeItem(ACCESS_TOKEN_KEY)
+    StorageService.removeItem(USER_STORAGE_KEY)
+    StorageService.removeItem(ACCESS_TOKEN_KEY)
   }
 
   /**
@@ -94,6 +94,6 @@ export class Store {
     const newUser = { ...oldUser, card }
 
     this.state.user = newUser
-    storageService.setItem(USER_STORAGE_KEY, newUser)
+    StorageService.setItem(USER_STORAGE_KEY, newUser)
   }
 }
