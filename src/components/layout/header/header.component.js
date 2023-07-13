@@ -22,7 +22,7 @@ export class Header extends BaseChild {
       Logo,
       Search,
       new UserItem({
-        avatarPath: 'https://cdn-icons-png.flaticon.com/512/1946/1946429.png',
+        avatarPath: 'https://loremflickr.com/512/512/cat',
         name: 'Kudryashov'
       }),
       new LogoutButton({
