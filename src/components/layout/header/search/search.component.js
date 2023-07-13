@@ -13,7 +13,7 @@ export class Search extends BaseChild {
     $R(this.element).find('input').input({
       type: 'search',
       name: 'search',
-      placeholder: 'Search contacts...'
+      placeholder: 'Search contacts'
     })
 
     return this.element
