@@ -1,8 +1,13 @@
 import { redQuery } from '@/core/red-query/red-query.lib'
 import { notify } from '@/core/services/notification.service'
+import { Store } from '@/core/store/store'
 
 export class CardService {
   #BASE_URL = '/cards'
+
+  constructor() {
+    this.store = Store.getInstance()
+  }
 
   byUser(onSuccess) {
     return redQuery({
@@ -42,7 +47,11 @@ export class CardService {
     return redQuery({
       path: `${this.#BASE_URL}/transfer-money`,
       method: 'PATCH',
-      body: { amount: +amount },
+      body: {
+        amount: +amount,
+        fromCardNumber: this.store.user.card.number,
+        toCardNumber
+      },
       onSuccess: () => {
         notify('Transfer successfully completed.')
         onSuccess()
