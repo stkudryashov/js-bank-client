@@ -23,10 +23,6 @@
   &.success {
     background-color: #2e8677;
   }
-
-  &:hover {
-    background-color: lighten(#2e8677, 15%);
-  }
 }
 
 @keyframes slideIn {
