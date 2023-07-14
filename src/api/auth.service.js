@@ -9,26 +9,26 @@ export class AuthService {
     this.store = Store.getInstance()
   }
 
-  login({ login, password }) {
+  login({ email, password }) {
     return redQuery({
       path: `${this.#BASE_URL}/login`,
       method: 'POST',
-      body: { login, password },
+      body: { email, password },
       onSuccess: data => {
         this.store.login(data.user, data.accessToken)
-        notify('You have successfully logged in.')
+        notify('You have successfully logged in')
       }
     })
   }
 
-  register({ login, password }) {
+  register({ email, password }) {
     return redQuery({
       path: `${this.#BASE_URL}/register`,
       method: 'POST',
-      body: { login, password },
+      body: { email, password },
       onSuccess: data => {
         this.store.login(data.user, data.accessToken)
-        notify('You have successfully registered.')
+        notify('You have successfully registered')
       }
     })
   }

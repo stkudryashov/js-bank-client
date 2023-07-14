@@ -28,14 +28,14 @@ export const redQuery = async ({
     error = null,
     data = null
 
-  const url = `${SERVER_URL}/api/${path}`
+  const url = `${SERVER_URL}/api${path}`
 
   const accessToken = StorageService.getItem(ACCESS_TOKEN_KEY)
 
   const requestOptions = {
     method,
     headers: {
-      'Content-Type': 'applications/json',
+      'Content-Type': 'application/json; charset=utf-8',
       ...headers
     }
   }

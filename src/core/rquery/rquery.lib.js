@@ -206,6 +206,24 @@ class RQuery {
   /* STYLES */
 
   /**
+   * Show the selected element by removing the 'display' style property.
+   * @returns {RQuery} The current RQuery instance for chaining.
+   */
+  show() {
+    this.element.style.removeProperty('display')
+    return this
+  }
+
+  /**
+   * Hides the selected element by setting its 'display' style to 'none'.
+   * @returns {RQuery} The current RQuery instance for chaining.
+   */
+  hide() {
+    this.element.style.display = 'none'
+    return this
+  }
+
+  /**
    * Set the CSS style of the selected element.
    * @param {string} property - CSS property to set.
    * @param {string} value - The value to set for the CSS property.
