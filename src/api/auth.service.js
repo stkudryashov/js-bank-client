@@ -28,7 +28,7 @@ export class AuthService {
       body: { email, password },
       onSuccess: data => {
         this.store.login(data.user, data.accessToken)
-        notify('You have successfully registered')
+        notify('You have successfully registered.')
       }
     })
   }

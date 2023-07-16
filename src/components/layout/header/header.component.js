@@ -20,6 +20,11 @@ export class Header extends BaseChild {
     this.store.addObserver(this)
 
     this.router = router
+
+    this.userItem = new UserItem({
+      avatarPath: '/',
+      name: 'Unknown'
+    })
   }
 
   update() {
@@ -28,6 +33,8 @@ export class Header extends BaseChild {
 
     if (this.user) {
       authSideElement.show()
+
+      this.userItem.update(this.user)
       this.router.navigate('/')
     } else {
       authSideElement.hide()
@@ -38,10 +45,7 @@ export class Header extends BaseChild {
     this.element = renderService.htmlToElement(template, styles, [
       Logo,
       Search,
-      new UserItem({
-        avatarPath: 'https://loremflickr.com/512/512/cat',
-        name: 'Kudryashov'
-      }),
+      this.userItem,
       new LogoutButton({
         router: this.router
       })
